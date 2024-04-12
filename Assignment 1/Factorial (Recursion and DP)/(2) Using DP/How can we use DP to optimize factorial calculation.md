@@ -16,7 +16,7 @@ For 4, we need to calculate **F(3), F(2), F(1)**
 Here we see some repeated calculation of F(1) to F(3). Using DP, storing this values, not calculating over and over we can optimize the factorial calculation.
 
 ## Pseudocode
-    Function Factorial(n)'
+    Function Factorial(n)
 	    if n <= 1
 		    return 1
 		if fact[n] != 0
