@@ -16,8 +16,9 @@ int32_t main()
         graph[u].push_back({ v, w });
     }
     vector<int> dist(n + 1, INT_MAX);
-    dist[1] = 0;
-    visNodes.push_back(1);
+    int startNode = 0;
+    dist[startNode] = 0;
+    visNodes.push_back(startNode);
     int remainingIterations = n - 1;
     while (remainingIterations-- > 0) {
         vector<int> newVisNodes;
@@ -43,7 +44,7 @@ int32_t main()
     if (isNegativeCycle) {
         cout << "Negative Cycle Detected, No Shortest Path\n";
     } else {
-        for (int i = 1; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             cout << dist[i] << " ";
         }
         cout << "\n";
