@@ -1,5 +1,4 @@
 #include <iostream>
-#include <set>
 #include <vector>
 using namespace std;
 
@@ -9,7 +8,7 @@ int32_t main()
     cin >> n;
     int m; // Number of Edges
     cin >> m;
-    set<int> visNodes;
+    vector<int> visNodes;
     vector<pair<int, int>> graph[n + 1];
     while (m--) {
         int u, v, w;
@@ -18,15 +17,15 @@ int32_t main()
     }
     vector<int> dist(n + 1, INT_MAX);
     dist[1] = 0;
-    visNodes.insert(1);
+    visNodes.push_back(1);
     int remainingIterations = n - 1;
     while (remainingIterations-- > 0) {
-        set<int> newVisNodes;
+        vector<int> newVisNodes;
         for (auto& it : visNodes) {
             for (auto& it2 : graph[it]) {
                 if (dist[it2.first] > dist[it] + it2.second) {
                     dist[it2.first] = dist[it] + it2.second;
-                    newVisNodes.insert(it2.first);
+                    newVisNodes.push_back(it2.first);
                 }
             }
         }
