@@ -15,8 +15,9 @@ bool Comparator(Edge& a, Edge& b)
 void PrintAllEdges(vector<Edge>& edges)
 {
     int n = edges.size();
+    cout << "U\tV\tWeight\n";
     for (int i = 0; i < n; i++) {
-        cout << edges[i].u << " " << edges[i].v << " " << edges[i].w << '\n';
+        cout << edges[i].u << "\t" << edges[i].v << "\t" << edges[i].w << '\n';
     }
 }
 int32_t main()
