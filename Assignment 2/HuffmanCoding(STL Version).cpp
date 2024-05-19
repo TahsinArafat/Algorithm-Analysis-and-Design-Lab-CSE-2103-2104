@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <bitset>
 #include <iostream>
 #include <map>
 #include <vector>
@@ -9,7 +10,12 @@ int32_t main()
     // String Input
     string s = "BCAADDDCCACACAC";
     cin >> s;
-
+    cout << "Original String in Bits:\n";
+    for (auto& it : s)
+        cout << bitset<8>(it);
+    cout << "\n";
+    cout << "Bits Needed for Original String: " << s.size() * 8 << "\n";
+    cout << "\n";
     // Frequency Array
     map<char, int> tmpMap;
     for (auto& it : s)
@@ -47,18 +53,20 @@ int32_t main()
     string encodedString = "";
     for (auto& it : s)
         encodedString += code[it];
-    cout << "The Huffman Character Map is as follows:\n";
+    cout << "The Huffman Character Map is as follows:\n\n";
     cout << "Character\tFrequency\tCode\n";
     for (auto& it : code)
         cout << it.first << "\t\t" << tmpMap[it.first] << "\t\t" << it.second << "\n";
-    cout << "Original String: " << s << "\n";
-    cout << "Encoded String: " << encodedString << "\n";
+    cout << '\n';
+    cout << "Encoded String:\n"
+         << encodedString << "\n\n";
     cout << "Total Bits in String:\t" << encodedString.size() << "\n";
     int totalBitsinMap = 0;
     for (auto& it : code)
         totalBitsinMap += it.second.size() + 8;
     cout << "Total Bits in Map:\t" << totalBitsinMap << "\n";
-    cout << "Neat Total Bits:\t" << encodedString.size() + totalBitsinMap << "\n";
+    cout << "----\t----\t----\t----\n";
+    cout << "Neat Total Bits: (+)\t" << encodedString.size() + totalBitsinMap << "\n";
 
     // Decoding
     cout << '\n';
